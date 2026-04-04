@@ -1,26 +1,26 @@
 from threading import Thread
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
+import logging
 
-class SimpleHandler(BaseHTTPRequestHandler):
+logger = logging.getLogger(__name__)
+
+class HealthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write(b"Bot is alive!")
-        
+        self.wfile.write(b"Bot English Mas/Mbak is alive!")
+
     def log_message(self, format, *args):
-        # Disable logging for each request to keep logs clean
-        pass
+        pass  # Suppress per-request logs
 
 def run_server():
-    # Render uses the PORT environment variable
-    port = int(os.environ.get('PORT', 8080))
-    server = HTTPServer(('0.0.0.0', port), SimpleHandler)
+    port = int(os.environ.get("BOT_HEALTH_PORT", 8000))
+    server = HTTPServer(("0.0.0.0", port), HealthHandler)
+    logger.info(f"Health check server running on port {port}")
     server.serve_forever()
 
 def keep_alive():
-    # Start the server in a separate thread so it doesn't block the bot
-    t = Thread(target=run_server)
-    t.daemon = True
+    t = Thread(target=run_server, daemon=True)
     t.start()
