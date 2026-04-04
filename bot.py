@@ -115,6 +115,9 @@ def main() -> None:
     # Messages
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
+    from keep_alive import keep_alive
+    keep_alive()
+
     logger.info("Mantul, bot English Mas/Mbak berjalan...")
     
     # Polling mode (runs until manually stopped)
