@@ -1,7 +1,7 @@
 import os
 import logging
-from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
 from dotenv import load_dotenv
 
 from ai_handler import generate_ai_response
@@ -32,6 +32,7 @@ async def post_init(application: Application):
     commands = [
         ("start", "Mulai sesi belajar baru"),
         ("menu", "Tampilkan panduan ini"),
+        ("support", "☕️ Dukung pengembangan bot"),
         ("reset", "Hapus riwayat memori (mulai level 1)")
     ]
     await application.bot.set_my_commands(commands)
@@ -49,9 +50,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f"Halo {user.first_name}! 👋\n\n"
         "Aku English Mas/Mbak, tutor bahasa Inggrismu yang santai.\n"
         "Yuk kita belajar bareng! Kamu bisa kirim kalimat bahasa Inggris yang mau dibahas, "
-        "bahasa Indonesia yang mau di-Inggris-in, atau cukup sapa aja biar aku yang kasih materi."
+        "bahasa Indonesia yang mau di-Inggris-in, atau cukup sapa aja biar aku yang kasih materi.\n\n"
+        "☕️ *Dukung saya:* /support"
     )
-    await update.message.reply_text(welcome_message)
+    await update.message.reply_text(welcome_message, parse_mode="Markdown")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.effective_user.id
@@ -115,6 +117,7 @@ async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "Gunakan perintah berikut ya:\n"
         "/start - Mulai sesi belajar baru\n"
         "/menu - Menampilkan menu ini\n"
+        "/support - ☕️ Dukung pengembangan\n"
         "/reset - Hapus ingatan percakapan (refresh)\n\n"
         "💡 *Tips Belajar:*\n"
         "1. Ketik kalimat bahasa Indonesia/Inggris apa saja.\n"
@@ -124,6 +127,33 @@ async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "   *3* -> Gas materi/topik baru!"
     )
     await update.message.reply_text(menu_text, parse_mode="Markdown")
+
+async def support_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    support_text = (
+        "☕️ *Dukung Pengembangan Bot*\n\n"
+        "Halo! Terima kasih sudah menggunakan bot ini. Jika kamu merasa terbantu dan ingin mendukung agar bot ini tetap aktif dan berkembang, kamu bisa memberikan apresiasi melalui:\n\n"
+        "🏦 *SeaBank*\n"
+        "Nomor Rekening: `901067312394` \n"
+        "Atas Nama: *Afgani Ardi Maryanto*\n\n"
+        "Dukungan sekecil apapun sangat berarti buat 'Mas/Mbak' beli kopi biar terus semangat ngajar! hehe. 🙏"
+    )
+    
+    # Optional: Add a button that just alerts "Terima kasih!" or leads to a link if you have Saweria/Trakteer
+    keyboard = [
+        [InlineKeyboardButton("Terima Kasih Banyak! 🙏", callback_data="thanks")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    await update.message.reply_text(support_text, reply_markup=reply_markup, parse_mode="Markdown")
+
+async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+    if query.data == "thanks":
+        await query.edit_message_text(
+            text=f"{query.message.text}\n\n❤️ *Mas/Mbak:* Kamu keren banget! Yuk lanjut belajar lagi.",
+            parse_mode="Markdown"
+        )
 
 def main() -> None:
     token = os.getenv("TELEGRAM_TOKEN")
@@ -138,6 +168,10 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("reset", reset))
     application.add_handler(CommandHandler("menu", menu_command))
+    application.add_handler(CommandHandler("support", support_command))
+    
+    # Callback Query Handler for buttons
+    application.add_handler(CallbackQueryHandler(button_callback))
     
     # Messages
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
