@@ -28,6 +28,16 @@ async def get_or_create_context(user_id):
         user_context[user_id] = {"state": "STATE 1 (LEARNING MODE)", "history": []}
     return user_context[user_id]
 
+async def post_init(application: Application):
+    commands = [
+        ("start", "Mulai sesi belajar baru"),
+        ("menu", "Tampilkan panduan ini"),
+        ("reset", "Hapus riwayat memori (mulai level 1)")
+    ]
+    await application.bot.set_my_commands(commands)
+    logger.info("Bot commands (menu button) updated successfully!")
+
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user = update.effective_user
     user_id = user.id
@@ -99,6 +109,22 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         del user_context[user_id]
     await update.message.reply_text("Sesi belajarmu sudah di-reset dari awal ya! Yuk kita mulai dari level 1 lagi.")
 
+async def menu_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    menu_text = (
+        "📚 *Menu English Mas/Mbak*\n\n"
+        "Gunakan perintah berikut ya:\n"
+        "/start - Mulai sesi belajar baru\n"
+        "/menu - Menampilkan menu ini\n"
+        "/reset - Hapus ingatan percakapan (refresh)\n\n"
+        "💡 *Tips Belajar:*\n"
+        "1. Ketik kalimat bahasa Indonesia/Inggris apa saja.\n"
+        "2. Setelah latihan selesai, balas dengan angka:\n"
+        "   *1* -> Ulangi materi tadi dong\n"
+        "   *2* -> Minta kalimat latihan lagi\n"
+        "   *3* -> Gas materi/topik baru!"
+    )
+    await update.message.reply_text(menu_text, parse_mode="Markdown")
+
 def main() -> None:
     token = os.getenv("TELEGRAM_TOKEN")
     if not token or token == "your_telegram_bot_token_here":
@@ -106,11 +132,12 @@ def main() -> None:
         return
 
     # Build bot application
-    application = Application.builder().token(token).build()
+    application = Application.builder().token(token).post_init(post_init).build()
 
     # Commands
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("reset", reset))
+    application.add_handler(CommandHandler("menu", menu_command))
     
     # Messages
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
