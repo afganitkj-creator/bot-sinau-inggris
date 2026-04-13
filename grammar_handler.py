@@ -1,4 +1,9 @@
 
+# Note: exercise blanks use ＿＿＿ (fullwidth underscore U+FF3F) to avoid
+# Telegram Markdown parsing issues caused by regular underscores.
+
+BLANK = "＿＿＿"
+
 GRAMMAR_TOPICS = [
     {
         "id": 1,
@@ -11,12 +16,12 @@ GRAMMAR_TOPICS = [
             "• He/She/It + *kata kerja + s/es*\n\n"
             "Contoh:\n"
             "• I *eat* rice every day. (Saya makan nasi setiap hari)\n"
-            "• She *goes* to the market on Sunday. (Dia pergi ke pasar hari Minggu)\n"
+            "• She *goes* to the market on Sunday.\n"
             "• Water *boils* at 100°C. (Air mendidih di 100°C)"
         ),
-        "exercise": "Lengkapi: 'My brother ___ (work) at a bank.'",
+        "exercise": "Lengkapi: 'My brother ＿＿＿ (work) at a bank.'",
         "answer": "works",
-        "hint": "Subjek 'My brother' = He → kata kerja + s",
+        "hint": "Subjek 'My brother' = He → kata kerja + s → works",
     },
     {
         "id": 2,
@@ -25,14 +30,14 @@ GRAMMAR_TOPICS = [
         "explanation": (
             "*Past Simple* dipakai untuk kejadian yang sudah selesai di masa lalu.\n\n"
             "Rumus:\n"
-            "• Regular verb: + *ed* (work → worked, play → played)\n"
-            "• Irregular verb: bentuk khusus (go → went, eat → ate, buy → bought)\n\n"
+            "• Regular verb: + *ed* (work→worked, play→played)\n"
+            "• Irregular verb: bentuk khusus (go→went, eat→ate, buy→bought)\n\n"
             "Contoh:\n"
             "• I *watched* a movie last night.\n"
             "• She *went* to Bali last month.\n"
             "• They *bought* a new car yesterday."
         ),
-        "exercise": "Ubah ke past tense: 'I ___ (go) to school by bus this morning.'",
+        "exercise": "Ubah ke past tense: 'I ＿＿＿ (go) to school by bus this morning.'",
         "answer": "went",
         "hint": "'go' adalah irregular verb → bentuk past-nya 'went'",
     },
@@ -42,16 +47,16 @@ GRAMMAR_TOPICS = [
         "emoji": "🔮",
         "explanation": (
             "Ada dua cara utama menyatakan masa depan:\n\n"
-            "1. *Will* → untuk prediksi / keputusan spontan\n"
-            "   • It *will* rain tomorrow. (spontan/prediksi)\n"
-            "   • I *will* help you! (keputusan saat itu)\n\n"
-            "2. *Going to* → untuk rencana yang sudah dipikirkan\n"
+            "1. *Will* → prediksi / keputusan spontan\n"
+            "   • It *will* rain tomorrow.\n"
+            "   • I *will* help you!\n\n"
+            "2. *Going to* → rencana yang sudah dipikirkan\n"
             "   • I *am going to* visit Jakarta next week.\n"
             "   • She *is going to* study medicine."
         ),
-        "exercise": "Pilih yang tepat: 'Watch out! You ___ fall!' (will / are going to)",
+        "exercise": "Pilih yang tepat: 'Watch out! You ＿＿＿ fall!' (will / going to)",
         "answer": "are going to",
-        "hint": "Bahaya sudah terlihat nyata → pakai 'going to' untuk prediksi berdasarkan bukti",
+        "hint": "Bahaya sudah terlihat → 'going to' untuk prediksi berdasarkan bukti nyata.",
     },
     {
         "id": 4,
@@ -59,15 +64,15 @@ GRAMMAR_TOPICS = [
         "emoji": "📌",
         "explanation": (
             "*a* / *an* → benda yang belum spesifik / pertama kali disebut\n"
-            "• *a* + konsonan: a book, a cat, a university\n"
-            "• *an* + vokal (bunyi): an apple, an hour, an egg\n\n"
-            "*the* → benda yang sudah spesifik / sudah diketahui\n\n"
+            "• *a* + konsonan: a book, a cat\n"
+            "• *an* + bunyi vokal: an apple, an hour\n\n"
+            "*the* → benda yang sudah spesifik / diketahui\n\n"
             "Contoh:\n"
-            "• I saw *a* dog. *The* dog was very cute.\n"
+            "• I saw *a* dog. *The* dog was cute.\n"
             "• *The* sun rises in the east.\n"
-            "• She is *an* honest person. (honest bunyi vokal 'o')"
+            "• She is *an* honest person. (honest bunyi 'o')"
         ),
-        "exercise": "Isi artikel yang tepat: 'I want to be ___ engineer someday.'",
+        "exercise": "Isi artikel: 'I want to be ＿＿＿ engineer someday.'",
         "answer": "an",
         "hint": "'engineer' dimulai bunyi vokal 'e' → pakai 'an'",
     },
@@ -77,35 +82,28 @@ GRAMMAR_TOPICS = [
         "emoji": "🔑",
         "explanation": (
             "Modal verbs menambahkan *makna tambahan* pada kata kerja:\n\n"
-            "• *can* → kemampuan / izin\n"
-            "  _I can swim. Can I go now?_\n\n"
-            "• *should* → saran / rekomendasi\n"
-            "  _You should drink more water._\n\n"
-            "• *must* → kewajiban kuat\n"
-            "  _You must wear a seatbelt._\n\n"
-            "• *could* → kemampuan masa lalu / permintaan sopan\n"
-            "  _Could you help me, please?_\n\n"
+            "• *can* → kemampuan / izin → _I can swim._\n"
+            "• *should* → saran → _You should drink more water._\n"
+            "• *must* → kewajiban kuat → _You must wear a seatbelt._\n"
+            "• *could* → permintaan sopan → _Could you help me?_\n\n"
             "Setelah modal → *kata kerja dasar* (tanpa s/to)"
         ),
-        "exercise": "Pilih yang tepat: 'You ___ see a doctor. You look sick.' (should/must/can)",
+        "exercise": "Pilih yang tepat: 'You ＿＿＿ see a doctor. You look sick.'",
         "answer": "should",
-        "hint": "Saran/rekomendasi = should. Must lebih kuat (kewajiban).",
+        "hint": "Saran = should. Must lebih kuat (kewajiban wajib).",
     },
     {
         "id": 6,
         "title": "Prepositions of Time — in, on, at",
         "emoji": "🕐",
         "explanation": (
-            "Preposisi waktu yang paling sering salah:\n\n"
-            "• *at* → waktu spesifik\n"
-            "  _at 7 PM, at midnight, at noon_\n\n"
-            "• *on* → hari & tanggal\n"
-            "  _on Monday, on July 4th, on my birthday_\n\n"
-            "• *in* → bulan, tahun, periode waktu\n"
-            "  _in January, in 2024, in the morning_\n\n"
-            "Trik: *A-O-I* → spesifik ke umum (At → On → In)"
+            "Tiga preposisi waktu yang paling sering salah:\n\n"
+            "• *at* → waktu spesifik: _at 7 PM, at midnight_\n"
+            "• *on* → hari & tanggal: _on Monday, on July 4th_\n"
+            "• *in* → bulan, tahun, periode: _in January, in 2024, in the morning_\n\n"
+            "Trik: *A-O-I* (At → On → In) = makin spesifik → makin umum"
         ),
-        "exercise": "Isi preposisi: 'The meeting is ___ Monday ___ 9 AM.'",
+        "exercise": "Isi preposisi: 'The meeting is ＿＿＿ Monday ＿＿＿ 9 AM.'",
         "answer": "on / at",
         "hint": "Hari = on Monday. Waktu spesifik = at 9 AM.",
     },
@@ -114,7 +112,7 @@ GRAMMAR_TOPICS = [
         "title": "Passive Voice — Kalimat Pasif",
         "emoji": "🔄",
         "explanation": (
-            "Passive voice dipakai ketika objek lebih penting dari pelaku.\n\n"
+            "Passive voice: objek lebih penting dari pelaku.\n\n"
             "Rumus: *Subject + to be + V3 (past participle)*\n\n"
             "Contoh:\n"
             "• Active: *The chef cooks* the food.\n"
@@ -123,7 +121,7 @@ GRAMMAR_TOPICS = [
             "• Passive: *My phone was stolen.*\n\n"
             "Common V3: eaten, written, made, broken, sold, built"
         ),
-        "exercise": "Ubah ke passive: 'The teacher explains the lesson.' → 'The lesson ___ ___ by the teacher.'",
+        "exercise": "Ubah ke passive: 'The teacher explains the lesson.'\n→ 'The lesson ＿＿＿ by the teacher.'",
         "answer": "is explained",
         "hint": "Subjek baru (the lesson) + is + explained (V3 dari explain)",
     },
@@ -132,39 +130,38 @@ GRAMMAR_TOPICS = [
         "title": "Conditional Sentences — Kalimat Pengandaian",
         "emoji": "🤔",
         "explanation": (
-            "3 tipe conditional yang paling penting:\n\n"
+            "3 tipe conditional:\n\n"
             "• *Type 1* (mungkin terjadi):\n"
-            "  If + present, will + infinitive\n"
+            "  If + present → will + infinitive\n"
             "  _If it rains, I will stay home._\n\n"
-            "• *Type 2* (tidak mungkin/khayalan):\n"
-            "  If + past, would + infinitive\n"
-            "  _If I were rich, I would travel the world._\n\n"
+            "• *Type 2* (khayalan):\n"
+            "  If + past → would + infinitive\n"
+            "  _If I were rich, I would travel._\n\n"
             "• *Type 3* (penyesalan masa lalu):\n"
-            "  If + had + V3, would have + V3\n"
+            "  If + had + V3 → would have + V3\n"
             "  _If I had studied, I would have passed._"
         ),
-        "exercise": "Lengkapi (Type 1): 'If she ___ (study) hard, she will pass the exam.'",
+        "exercise": "Lengkapi (Type 1): 'If she ＿＿＿ (study) hard, she will pass.'",
         "answer": "studies",
-        "hint": "Type 1: If + present simple → she + studies (he/she/it + s)",
+        "hint": "Type 1: If + present simple. she → studies (he/she/it + s)",
     },
     {
         "id": 9,
         "title": "Reported Speech — Kalimat Tidak Langsung",
         "emoji": "💬",
         "explanation": (
-            "Reported speech dipakai saat kita menceritakan ulang ucapan orang lain.\n\n"
+            "Reported speech: menceritakan ulang ucapan orang lain.\n\n"
             "Perubahan tense (backshift):\n"
-            "• says → said\n"
             "• am/is/are → was/were\n"
             "• will → would\n"
             "• can → could\n\n"
             "Contoh:\n"
-            "• Direct: He said, _'I am hungry.'_\n"
-            "• Reported: He said (that) *he was hungry.*\n\n"
-            "• Direct: She said, _'I will call you.'_\n"
-            "• Reported: She said (that) *she would call me.*"
+            "• Direct: He said, 'I *am* hungry.'\n"
+            "• Reported: He said that he *was* hungry.\n\n"
+            "• Direct: She said, 'I *will* call you.'\n"
+            "• Reported: She said that she *would* call me."
         ),
-        "exercise": "Ubah: She said, 'I can help you.' → She said that she ___ help me.",
+        "exercise": "Ubah: 'She said, I can help you.' → She said that she ＿＿＿ help me.",
         "answer": "could",
         "hint": "'can' dalam reported speech berubah menjadi 'could'",
     },
@@ -173,17 +170,16 @@ GRAMMAR_TOPICS = [
         "title": "Phrasal Verbs — Kata Kerja Majemuk",
         "emoji": "💡",
         "explanation": (
-            "Phrasal verbs = kata kerja + preposisi/adverb yang artinya berbeda.\n\n"
-            "Paling sering dipakai:\n"
-            "• *give up* = menyerah (_Don't give up!_)\n"
-            "• *look up* = mencari info (_Look it up on Google._)\n"
-            "• *turn on/off* = nyalakan/matikan (_Turn off the light._)\n"
-            "• *put off* = menunda (_Don't put off your homework._)\n"
-            "• *get along* = rukun (_We get along well._)\n"
-            "• *run out of* = kehabisan (_I ran out of money._)\n"
-            "• *bring up* = membesarkan / membahas (_She was brought up in Jogja._)"
+            "Phrasal verbs = kata kerja + preposisi yang artinya berbeda.\n\n"
+            "Yang paling sering dipakai:\n"
+            "• *give up* = menyerah → _Don't give up!_\n"
+            "• *look up* = mencari → _Look it up on Google._\n"
+            "• *turn on/off* = nyalakan/matikan → _Turn off the light._\n"
+            "• *put off* = menunda → _Don't put off your homework._\n"
+            "• *get along* = rukun → _We get along well._\n"
+            "• *run out of* = kehabisan → _I ran out of money._"
         ),
-        "exercise": "Isi phrasal verb: 'I ___ ___ trying. I will do it!' (tidak menyerah)",
+        "exercise": "Isi phrasal verb: 'I ＿＿＿ trying. I will do it!' (tidak menyerah)",
         "answer": "won't give up",
         "hint": "'give up' = menyerah. 'won't give up' = tidak akan menyerah.",
     },
@@ -196,8 +192,7 @@ def get_grammar_menu():
     lines = ["📚 *Grammar Coach — Pilih Topik:*\n"]
     for t in GRAMMAR_TOPICS:
         lines.append(f"*{t['id']}.* {t['emoji']} {t['title']}")
-    lines.append(f"\nKetik angka *1–{len(GRAMMAR_TOPICS)}* untuk belajar!")
-    lines.append("Atau ketik /grammar lagi untuk lanjut dari topik terakhir.")
+    lines.append(f"\nKetik angka *1–{len(GRAMMAR_TOPICS)}* untuk mulai!")
     return "\n".join(lines)
 
 
@@ -212,8 +207,15 @@ def start_grammar(user_id, topic_num=None):
     return _format_lesson(idx)
 
 
+def start_grammar_menu(user_id):
+    """Show topic list and set state to choosing."""
+    grammar_sessions[user_id] = {"state": "choosing", "topic_idx": 0}
+    return get_grammar_menu()
+
+
 def is_in_grammar(user_id):
-    return user_id in grammar_sessions and grammar_sessions[user_id]["state"] in ("exercise",)
+    s = grammar_sessions.get(user_id)
+    return s and s["state"] == "exercise"
 
 
 def is_choosing_grammar(user_id):
@@ -239,7 +241,7 @@ def show_grammar_exercise(user_id):
     topic = GRAMMAR_TOPICS[idx]
     s["state"] = "exercise"
     return (
-        f"✏️ *Latihan:*\n\n"
+        f"✏️ *Latihan — {topic['emoji']} {topic['title']}*\n\n"
         f"{topic['exercise']}\n\n"
         f"_Ketik jawabanmu!_"
     )
@@ -258,7 +260,7 @@ def handle_grammar_answer(user_id, answer_text):
     is_correct = correct_lower in answer_lower or answer_lower == correct_lower
 
     if is_correct:
-        feedback = f"✅ *Benar!* Jawaban: _{topic['answer']}_\n\n_{topic['hint']}_"
+        feedback = f"✅ *Benar!*\nJawaban: _{topic['answer']}_\n\n_{topic['hint']}_"
     else:
         feedback = (
             f"❌ *Hampir!*\n"
@@ -268,7 +270,6 @@ def handle_grammar_answer(user_id, answer_text):
         )
 
     next_idx = (idx + 1) % len(GRAMMAR_TOPICS)
-    grammar_sessions[user_id] = {"state": "done", "topic_idx": next_idx}
     del grammar_sessions[user_id]
 
     next_topic = GRAMMAR_TOPICS[next_idx]
