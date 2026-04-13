@@ -9,7 +9,7 @@
 [![Telegram](https://img.shields.io/badge/Telegram-@sinau__inggris__bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/sinau_inggris_bot)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Gemini](https://img.shields.io/badge/Gemini_AI-Powered-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
-[![OpenAI](https://img.shields.io/badge/OpenAI-Fallback-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Whisper_+_Fallback-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
@@ -18,124 +18,177 @@
 
 ## ✨ Tentang Bot
 
-**English Mas/Mbak** adalah bot Telegram berbasis AI yang dirancang khusus untuk pemula Indonesia — terutama yang selama ini kesulitan belajar bahasa Inggris dari subtitle atau buku formal.
-
-Bot ini berbicara dalam bahasa Indonesia yang santai dan ramah, layaknya teman yang sabar ngajarin kamu pelan-pelan. Tidak ada gaya guru yang kaku, yang ada hanya teman belajar yang asik!
-
-> *"Belajar Bahasa Inggris sambil santai, tanpa malu, tanpa ribet."*
+**English Mas/Mbak** adalah bot Telegram berbasis AI yang dirancang khusus untuk membantu orang Indonesia belajar bahasa Inggris dari nol — dengan pendekatan yang santai, sabar, dan interaktif seperti punya teman tutor pribadi.
 
 ---
 
-## 🎯 Fitur Utama
+## 🚀 Fitur Utama
 
-| Fitur | Deskripsi |
-|-------|-----------|
-| 💬 **Tutor Percakapan** | Belajar dari dialog natural gaya *Friends* — kontekstual, bukan hafalan rumus |
-| 🃏 **Flashcard Kosakata** | Latihan vocab interaktif dengan sistem flipchart — pilih topik, jawab, cek skor |
-| 📊 **Sistem Level** | Mulai dari kalimat dasar hingga slang & percakapan natural |
-| 🔄 **State Management** | Bot mengingat percakapan & progress kamu dalam sesi |
-| 🤖 **Multi-AI Fallback** | Gemini AI → Replit AI → OpenAI, otomatis pindah jika satu error |
-| 🌙 **Always Online** | Keep-alive server untuk UptimeRobot monitoring |
+### 🎯 AI Assessment (Tes Penempatan Level)
+> `/assessment`
+
+Tes awal **10 soal** yang dirancang untuk menganalisis kemampuan pengguna dari level Pemula hingga Lanjutan. Setelah tes, kurikulum belajar otomatis disesuaikan dengan level kamu.
+
+```
+Soal 1 dari 10
+🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜
+
+Pilih yang benar: 'I ___ a student.'
+
+A. am
+B. is
+C. are
+D. be
+
+Ketik A, B, C, atau D
+```
+
+**Hasil assessment:**
+| Skor | Level |
+|------|-------|
+| 0–3  | Pemula 🌱 |
+| 4–7  | Menengah 📈 |
+| 8–10 | Lanjutan 🚀 |
 
 ---
 
-## 📚 Topik Flashcard
+### 💬 AI Role-play — Simulasi Percakapan Nyata
+> `/roleplay`
 
-Kamu bisa latihan vocab dengan 7 kategori:
+Latihan percakapan interaktif dengan AI yang berperan sebagai lawan bicara dalam situasi nyata. Tersedia **5 skenario**:
+
+| # | Skenario | Deskripsi |
+|---|----------|-----------|
+| 1 | 💼 Wawancara Kerja | Simulasi wawancara HRD dalam bahasa Inggris |
+| 2 | 🍽️ Di Restoran | Pesan makanan dan berinteraksi dengan waiter |
+| 3 | ✈️ Di Bandara | Check-in, imigrasi, hingga boarding |
+| 4 | 🛍️ Belanja | Tanya produk, tawar-menawar di toko |
+| 5 | 🏥 Ke Dokter | Konsultasi medis dalam bahasa Inggris |
+
+Setelah **8 percakapan**, AI otomatis memberikan feedback lengkap tentang grammar dan vocabulary kamu.
+
+---
+
+### 📚 Grammar Coach — Belajar Tata Bahasa
+> `/grammar` → `/latihan`
+
+10 topik grammar yang tersusun dari dasar ke lanjutan, lengkap dengan penjelasan dan soal latihan interaktif:
+
+| # | Topik |
+|---|-------|
+| 1 | ⏰ Present Simple |
+| 2 | 📖 Past Simple |
+| 3 | 🔮 Future Tense (will / going to) |
+| 4 | 📌 Articles (a, an, the) |
+| 5 | 🔑 Modal Verbs (can, should, must) |
+| 6 | 🕐 Prepositions of Time (in, on, at) |
+| 7 | 🔄 Passive Voice |
+| 8 | 🤔 Conditional Sentences |
+| 9 | 💬 Reported Speech |
+| 10 | 💡 Phrasal Verbs |
+
+---
+
+### 🎤 Analisis Suara (Voice Analyzer)
+> Kirim pesan suara langsung ke bot
+
+Kirim pesan suara dalam bahasa Inggris, dan bot akan:
+1. **Transkripsi** ucapan kamu otomatis (via OpenAI Whisper)
+2. **Koreksi grammar** dan vocabulary
+3. **Berikan versi yang lebih natural**
+4. **Skor 1–10** sebagai feedback
 
 ```
-🍽️ Makanan & Minuman    🎨 Warna         👨‍👩‍👧‍👦 Keluarga
-🐾 Hewan                🧑 Bagian Tubuh  😊 Emosi & Perasaan
-🏃 Aktivitas Sehari-hari          🎲 Random (campuran semua)
+🎤 Yang kamu ucapkan: "I go to school yesterday"
+✅ Koreksi grammar: "I went to school yesterday" (past tense)
+📝 Versi lebih natural: "I went to school yesterday."
+💡 Tips: Gunakan past tense (went) untuk kejadian kemarin
+⭐ Skor: 7/10
 ```
 
 ---
 
-## 🤖 Cara Pakai Bot
+### 🃏 Flashcard Kosakata
+> `/vocab`
 
-### Langkah 1 — Buka bot di Telegram
-Cari **[@sinau_inggris_bot](https://t.me/sinau_inggris_bot)** atau klik link di atas.
+Sesi flashcard interaktif dengan **7 topik kategori** dan **100+ kosakata**:
 
-### Langkah 2 — Mulai sesi
-Ketik `/start` untuk memulai. Bot akan menyapa dan siap belajar!
+`makanan` · `warna` · `keluarga` · `hewan` · `tubuh` · `emosi` · `aktivitas` · `🎲 acak`
 
-### Langkah 3 — Kirim pesan
-Kamu bisa kirim:
-- **Kata/kalimat bahasa Inggris** → Bot langsung bahas artinya + contoh
-- **Kalimat bahasa Indonesia** → Bot terjemahkan + ajarkan cara pakainya
-- **Pesan bebas / sapa** → Bot yang tentuin materi hari ini
-
-### Langkah 4 — Latihan
-Setiap sesi materi selalu diakhiri dengan latihan kecil. Jawab saja dengan kalimat biasa!
-
-### Langkah 5 — Pilih menu lanjutan
-Setelah dapat feedback, balas:
-```
-1  →  Ulangi materi
-2  →  Latihan lagi (topik sama)
-3  →  Naik level / materi baru
-```
-
-### Langkah 6 — Coba Flashcard Vocab
-Ketik `/vocab` untuk latihan kosakata dengan sistem kartu:
-```
-Bot  : 🃏 Card 1/10
-       🇬🇧 RICE
-       Apa artinya dalam bahasa Indonesia?
-
-Kamu : nasi
-
-Bot  : ✅ Betul! RICE = nasi
-       "I eat rice every day."
-```
+- **Random mode**: 20 kata dari semua topik (~10 menit)
+- **Per kategori**: 15 kata per sesi
+- Sistem penilaian dengan fuzzy matching (typo kecil masih dihitung)
 
 ---
 
-## 📋 Daftar Perintah
+### 💬 Percakapan Bebas + AI Tutor
+Kirim teks apa saja — bot akan merespons sesuai level dan konteksmu:
 
-| Perintah | Fungsi |
-|----------|--------|
-| `/start` | Mulai sesi belajar baru |
-| `/menu` | Tampilkan panduan lengkap |
-| `/vocab` | Latihan kosakata flashcard |
-| `/stop` | Hentikan sesi flashcard |
-| `/reset` | Reset sesi dari awal |
+| Input | Respons Bot |
+|-------|-------------|
+| Kalimat bahasa Inggris | Dibahas + diajari |
+| Kalimat bahasa Indonesia | Diterjemahkan + diajarkan |
+| Input bebas | Bot yang buatkan materi |
 
 ---
 
-## 🚀 Deploy Sendiri
+## 🤖 Arsitektur AI
 
-### Prasyarat
-- Python 3.11+
-- Telegram Bot Token (dari [@BotFather](https://t.me/BotFather))
-- Google Gemini API Key (dari [Google AI Studio](https://aistudio.google.com))
+```
+Gemini 1.5 Flash (Primary)
+       ↓ (jika gagal/quota habis)
+Replit AI Integration (OpenAI-compatible)
+       ↓ (jika gagal)
+OpenAI GPT-3.5 (Fallback)
+```
 
-### Instalasi
+**Transkripsi suara:** OpenAI Whisper-1
+
+---
+
+## 📱 Semua Command
+
+| Command | Fungsi |
+|---------|--------|
+| `/start` | Mulai / kembali ke menu utama |
+| `/assessment` | Tes penempatan level (10 soal) |
+| `/roleplay` | Pilih dan mulai sesi role-play |
+| `/grammar` | Buka grammar coach |
+| `/grammar menu` | Pilih topik grammar |
+| `/latihan` | Mulai soal latihan grammar |
+| `/vocab` | Mulai flashcard kosakata |
+| `/menu` | Lihat panduan lengkap |
+| `/stop` | Hentikan semua sesi aktif |
+| `/reset` | Reset sesi dan profil |
+
+---
+
+## ⚙️ Cara Deploy Sendiri
+
+### 1. Clone repo
 
 ```bash
-# Clone repo
 git clone https://github.com/afganitkj-creator/bot-sinau-inggris.git
 cd bot-sinau-inggris
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Setup environment
-cp .env.example .env
-# Edit .env dan isi token/API key kamu
 ```
 
-### Konfigurasi `.env`
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Buat file `.env`
 
 ```env
 TELEGRAM_TOKEN=your_telegram_bot_token
 GEMINI_API_KEY=your_gemini_api_key
-OPENAI_API_KEY=your_openai_api_key   # opsional, sebagai fallback
-AI_PROVIDER=gemini                    # gemini atau openai
-BOT_HEALTH_PORT=8000                  # port untuk health check
+OPENAI_API_KEY=your_openai_api_key   # opsional, untuk voice + fallback
+AI_PROVIDER=gemini
+BOT_HEALTH_PORT=8000
 ```
 
-### Jalankan
+### 4. Jalankan bot
 
 ```bash
 python bot.py
@@ -143,87 +196,48 @@ python bot.py
 
 ---
 
-## 🔁 Keep-Alive dengan UptimeRobot
+## 📡 Setup UptimeRobot (Agar Bot Tidak Mati)
 
-Bot menyertakan server health check internal. Daftarkan URL berikut ke [UptimeRobot](https://uptimerobot.com) agar bot tidak tidur:
-
-```
-https://<your-replit-domain>/api/healthz
-```
-
-Rekomendasi interval: **setiap 5 menit**.
-
----
-
-## 🧠 Alur Pembelajaran AI
-
-```
-Input User
-    │
-    ├── Bahasa Inggris  →  Bahas + Terjemah + Contoh + Latihan
-    ├── Bahasa Indonesia →  Translate + Ajarkan Konteks + Latihan  
-    └── Bebas / Sapa    →  AI buat materi sendiri (Friends-style)
-    
-Setelah Latihan
-    │
-    └── Feedback → 1. Ulangi / 2. Latihan lagi / 3. Naik level
-```
-
-**Level sistem:**
-```
-Level 1  →  Kalimat dasar
-Level 2  →  Percakapan sehari-hari
-Level 3  →  Slang & natural speech
-Level 4  →  User buat kalimat sendiri
-```
-
----
-
-## 🛠️ Tech Stack
-
-```
-Language  : Python 3.11
-Framework : python-telegram-bot 20.7
-AI        : Google Gemini 1.5 Flash (primary)
-            Replit AI / OpenAI GPT (fallback)
-Deploy    : Replit (always-on)
-Monitor   : UptimeRobot
-```
+1. Buka [uptimerobot.com](https://uptimerobot.com) → Create Monitor
+2. **Monitor Type**: HTTP(s)
+3. **URL**: `https://YOUR_REPLIT_DOMAIN/api/healthz`
+4. **Interval**: 5 menit
 
 ---
 
 ## 📁 Struktur File
 
 ```
-bot-sinau-inggris/
-├── bot.py            # Handler utama & command routing
-├── ai_handler.py     # Integrasi AI (Gemini + OpenAI)
-├── system_prompt.py  # System prompt tutor AI
-├── vocab_handler.py  # Logic flashcard kosakata
-├── vocab_data.py     # Database 100+ kosakata (7 topik)
-├── keep_alive.py     # Health check server
-├── requirements.txt  # Python dependencies
-└── .env.example      # Template environment variables
+bot-telegram/
+├── bot.py                # Orchestrator utama + semua handlers
+├── ai_handler.py         # Multi-AI fallback (Gemini → Replit → OpenAI)
+├── system_prompt.py      # System prompt level-aware (beginner/intermediate/advanced)
+├── assessment_handler.py # Placement test 10 soal
+├── roleplay_handler.py   # 5 skenario role-play AI
+├── grammar_handler.py    # Grammar Coach 10 topik
+├── voice_handler.py      # Voice → Whisper → analisis grammar
+├── vocab_handler.py      # Flashcard sesi + scoring
+├── vocab_data.py         # 100+ kosakata per 7 topik
+├── user_profile.py       # Level & profil pengguna
+├── keep_alive.py         # Health check server (UptimeRobot)
+├── requirements.txt      # Python dependencies
+└── .env.example          # Template konfigurasi
 ```
 
 ---
 
-## 🤝 Kontribusi
+## 🛠️ Tech Stack
 
-Pull request dan issue sangat disambut! Kalau kamu punya ide topik kosakata baru, perbaikan prompt, atau fitur tambahan — langsung aja buka PR.
-
----
-
-## 📄 Lisensi
-
-MIT License — bebas dipakai, dimodifikasi, dan disebarkan.
+- **Runtime**: Python 3.11
+- **Bot Framework**: python-telegram-bot 20.7
+- **AI Primary**: Google Gemini 1.5 Flash (`google-genai`)
+- **AI Fallback**: OpenAI GPT via Replit AI Integration
+- **Voice Transcription**: OpenAI Whisper-1
+- **Hosting**: Replit (free tier)
+- **Uptime Monitor**: UptimeRobot
 
 ---
 
 <div align="center">
-
-Dibuat dengan ❤️ untuk pelajar bahasa Inggris Indonesia
-
-**[⭐ Star repo ini](https://github.com/afganitkj-creator/bot-sinau-inggris)** kalau bermanfaat!
-
+<i>Dibuat dengan ❤️ untuk membantu orang Indonesia belajar bahasa Inggris</i>
 </div>

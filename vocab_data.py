@@ -140,12 +140,12 @@ def get_words_for_category(category_key):
         all_words = []
         for cat in VOCAB_CATEGORIES.values():
             all_words.extend(cat["words"])
-        return random.sample(all_words, min(10, len(all_words)))
+        return random.sample(all_words, min(20, len(all_words)))
     cat = VOCAB_CATEGORIES.get(category_key)
     if cat:
         words = cat["words"].copy()
         random.shuffle(words)
-        return words[:10]
+        return words[:15]
     return []
 
 def get_category_by_number(num):
