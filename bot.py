@@ -27,8 +27,9 @@ async def support_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 # ... existing code here
 
 # 4. Updating the menu command
-        "💎 /premium — Fitur premium\n"
-        "💖 /support — Support developer dengan QRIS!\n\n"
+# Add these lines to the menu_text string inside the menu command function:
+#     "💎 /premium — Fitur premium\n"
+#     "💖 /support — Support developer dengan QRIS!\n\n"
 
 # ... existing code here
 
